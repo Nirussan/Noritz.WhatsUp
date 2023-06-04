@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "561452683891",
+    "firebase_url": "https://what-sup-3a7b1-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "what-sup-3a7b1",
+    "storage_bucket": "what-sup-3a7b1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:561452683891:android:f669959165b29f6f125006",
+        "android_client_info": {
+          "package_name": "com.noritz.whatsup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "561452683891-rfm5asiev0d9k2me3nig6kvui43d49fd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.noritz.whatsup",
+            "certificate_hash": "99e8a1b2572f4545d61048bf918a8045edd25567"
+          }
+        },
+        {
+          "client_id": "561452683891-s7aq59c02r1u1s2b21hi67eqea7maatm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEUKWrFGggOz9QWlFwlSK8d837XcroGtE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "561452683891-2mh72qjvo83lag22jopsl28npkokpa6k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
