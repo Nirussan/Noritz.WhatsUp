@@ -11,12 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
-import com.google.firebase.auth.FirebaseAuthMissingActivityForRecaptchaException
-import com.google.firebase.auth.PhoneAuthCredential
-import com.google.firebase.auth.PhoneAuthOptions
-import com.google.firebase.auth.PhoneAuthProvider
+import com.google.firebase.auth.*
 import java.util.concurrent.TimeUnit
 
 class Connexion : AppCompatActivity() {
@@ -36,8 +31,8 @@ class Connexion : AppCompatActivity() {
         buttonOTP.setOnClickListener{
             numberPhone = editTextNumberPhone.text.trim().toString()
             if(numberPhone.isNotEmpty()) {
-                if(numberPhone.length == 10) {
-                    numberPhone = "+33$numberPhone"
+                if(numberPhone.length == 9) {
+                    numberPhone = "+33123456789"
 
                     progressBarPhone.visibility = View.VISIBLE
 
@@ -74,17 +69,23 @@ class Connexion : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-
+                    Toast.makeText(this, "Authenticate Successfully", Toast.LENGTH_SHORT).show()
+                    envoyerMainActivity()
                 } else {
                     // Sign in failed, display a message and update the UI
+                    Log.d("TAG", "signInWithPhoneAuthCredential :${task.exception.toString()}")
                     if (task.exception is FirebaseAuthInvalidCredentialsException) {
                         // The verification code entered was invalid
                     }
                     // Update UI
                 }
+                progressBarPhone.visibility = View.INVISIBLE
             }
     }
 
+    private fun envoyerMainActivity() {
+        startActivity(Intent(this,Menu::class.java))
+    }
 
     private val callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
@@ -128,11 +129,12 @@ class Connexion : AppCompatActivity() {
         val intent = Intent(this@Connexion,Verification::class.java)
         intent.putExtra("OTP", verificationId)
         intent.putExtra("resendToken", token)
+        intent.putExtra("phoneNumber", numberPhone)
         startActivity(intent)
         progressBarPhone.visibility = View.INVISIBLE
     }
     }
-    
+
     override fun onStart() {
         super.onStart()
         if(auth.currentUser != null) {

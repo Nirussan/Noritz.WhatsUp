@@ -54,4 +54,5 @@
     <string name="resend_OTP">resend OTP</string>
     <string name="verification">Verification</string>
     <string name="_0">0</string>
+    <string name="sign_out">Sign out</string>
 </resources>
