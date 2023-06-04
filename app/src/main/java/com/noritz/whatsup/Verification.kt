@@ -6,6 +6,7 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.PhoneAuthProvider
 
 class Verification : AppCompatActivity() {
 
@@ -20,7 +21,7 @@ class Verification : AppCompatActivity() {
     private lateinit var editTextNumber6 : EditText
 
     private lateinit var OTP : String
-    private lateinit var resen
+    private lateinit var resendToken : PhoneAuthProvider.ForceResendingToken
     override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.verification)
