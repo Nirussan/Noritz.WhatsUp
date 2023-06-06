@@ -130,7 +130,7 @@ class Verification : AppCompatActivity() {
         }
 
      private fun envoyerMainActivity() {
-         startActivity(Intent(this,MainActivity::class.java))
+         startActivity(Intent(this,Create_profile::class.java))
          finish()
      }
 

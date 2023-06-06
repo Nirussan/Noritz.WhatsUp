@@ -2,6 +2,7 @@ package com.noritz.whatsup
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import androidx.fragment.app.Fragment
 import com.noritz.whatsup.databinding.ActivityMainBinding;
 
@@ -22,7 +23,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.settings -> replaceFragment(Settings())
                 else ->{
 
-                R.
+
 
                 }
 

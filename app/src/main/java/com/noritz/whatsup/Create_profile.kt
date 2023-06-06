@@ -63,13 +63,14 @@ class Create_profile : AppCompatActivity() {
                         usedImg
                     )
                     fDB!!.reference.child("Users").child(auth.uid.toString()).setValue(user).addOnCompleteListener {
-                        val intent = Intent(this@Create_profile, Menu::class.java)
+                        val intent = Intent(this@Create_profile, MainActivity::class.java)
                         startActivity(intent)
                         finish()
                     } // a voir
                 }
             }
         }
+        //envoyerMainActivity()
 
     }
 
@@ -106,6 +107,10 @@ class Create_profile : AppCompatActivity() {
         imageView = findViewById<ImageView?>(R.id.profilePic)
         nameButton = findViewById(R.id.nameButton)
         nameEditText = findViewById(R.id.nameEditText)
+    }
+
+    private fun envoyerMainActivity() {
+        startActivity(Intent(this,MainActivity::class.java))
     }
 
 }
