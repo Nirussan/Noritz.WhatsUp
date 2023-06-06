@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.settings -> replaceFragment(Settings())
                 else ->{
 
-
+                R.
 
                 }
 
