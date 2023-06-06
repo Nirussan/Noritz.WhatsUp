@@ -44,12 +44,11 @@ class Connexion : AppCompatActivity() {
                         .build()
                     PhoneAuthProvider.verifyPhoneNumber(options)
                 }else{
-                    Toast.makeText(this, "Veuillez saisir un numéro correcte", Toast.LENGTH_SHORT).show()
-
+                    Toast.makeText(this, "Please enter the correct phone number", Toast.LENGTH_SHORT).show()
                 }
 
             }else {
-                Toast.makeText(this, "Veuillez saisir un numéro", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Please enter your phone number", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -134,6 +133,7 @@ class Connexion : AppCompatActivity() {
         intent.putExtra("phoneNumber", numberPhone)
         startActivity(intent)
         progressBarPhone.visibility = View.INVISIBLE
+        finish()
     }
     }
 
@@ -141,6 +141,7 @@ class Connexion : AppCompatActivity() {
         super.onStart()
         if(auth.currentUser != null) {
             startActivity(Intent(this, Menu::class.java))
+            finish()
         }
     }
 }

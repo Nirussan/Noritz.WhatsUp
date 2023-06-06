@@ -75,10 +75,10 @@ class Verification : AppCompatActivity() {
                         progressBar.visibility = View.VISIBLE
                         signInWithPhoneAuthCredential(credits)
                     }else {
-                        Toast.makeText(this,"Veuillez saisir l'OTP correcte", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this,"Please enter the correct OTP", Toast.LENGTH_SHORT).show()
                     }
                 }else {
-                    Toast.makeText(this,"Veuillez saisir l'OTP", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this,"Please type the given OTP", Toast.LENGTH_SHORT).show()
                  }
             }
     }
@@ -131,6 +131,7 @@ class Verification : AppCompatActivity() {
 
      private fun envoyerMainActivity() {
          startActivity(Intent(this,MainActivity::class.java))
+         finish()
      }
 
     private fun addTextChangedListener() {
