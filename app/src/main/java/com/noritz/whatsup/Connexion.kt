@@ -32,7 +32,7 @@ class Connexion : AppCompatActivity() {
             numberPhone = editTextNumberPhone.text.trim().toString()
             if(numberPhone.isNotEmpty()) {
                 if(numberPhone.length == 9) {
-                    numberPhone = "+33123456789"
+                    numberPhone = "+33$numberPhone"
 
                     progressBarPhone.visibility = View.VISIBLE
 
@@ -51,7 +51,6 @@ class Connexion : AppCompatActivity() {
             }else {
                 Toast.makeText(this, "Veuillez saisir un numéro", Toast.LENGTH_SHORT).show()
             }
-
         }
     }
 
@@ -96,6 +95,9 @@ class Connexion : AppCompatActivity() {
         // 2 - Auto-retrieval. On some devices Google Play services can automatically
         //     detect the incoming verification SMS and perform verification without
         //     user action.
+        Log.d("TAG", "onVerificationCompleted:" + credential);
+
+        Log.e("number","credential=-=-=>>><<>>>signInWithPhoneAuthCredential-->>");
         signInWithPhoneAuthCredential(credential)
     }
 
