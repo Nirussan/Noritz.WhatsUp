@@ -61,4 +61,6 @@
     <string name="name">Name</string>
     <string name="type_your_username">Type your username</string>
     <string name="enter">Enter</string>
+    <string name="chats">Chats</string>
+    <string name="username">Name</string>
 </resources>

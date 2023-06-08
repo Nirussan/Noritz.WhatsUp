@@ -11,11 +11,12 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
+import com.noritz.whatsup.databinding.CreateProfileBinding
 import java.util.Date
-
+// je peux mettre des dialogues mais ca fait trop copier coller
 class Create_profile : AppCompatActivity() {
 
-    //var bind:ActivitySetupProfileBinding = null
+    var bind: CreateProfileBinding? = null
     private lateinit var auth : FirebaseAuth
     private var fDB : FirebaseDatabase? = null
     private var fStorage : FirebaseStorage? = null
@@ -29,18 +30,19 @@ class Create_profile : AppCompatActivity() {
     @SuppressLint("SuspiciousIndentation") // a voir
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.create_profile)
+        bind = CreateProfileBinding.inflate(layoutInflater)
+        setContentView(bind!!.root)
         initialisation()
-        imageView.setOnClickListener {
+        bind!!.profilePic.setOnClickListener {
             val intent = Intent()
             intent.action = Intent.ACTION_GET_CONTENT
             intent.type = "image/*"
             startActivityForResult(intent, 45) // why 45
         }
-        nameButton.setOnClickListener {
+        bind!!.nameButton.setOnClickListener {
             val username : String = nameEditText.text.toString()
             if(username.isEmpty()){
-                nameEditText.setError("Please type your username")
+                bind!!.nameEditText.setError("Please type your username")
             }
             if(img != null){
              val storageRef = fStorage!!.reference.child("Profile").child(auth!!.uid!!) //a voir
