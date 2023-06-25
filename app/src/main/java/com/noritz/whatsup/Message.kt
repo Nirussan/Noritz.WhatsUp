@@ -14,7 +14,7 @@ class Message {
         timeStamp :Long
     ){
         this.message = message
-        this.senderId = senderId,
+        this.senderId = senderId
         this.timeStamp = timeStamp
     }
 
