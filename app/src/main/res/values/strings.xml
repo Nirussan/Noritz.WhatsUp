@@ -63,4 +63,10 @@
     <string name="enter">Enter</string>
     <string name="chats">Chats</string>
     <string name="username">Name</string>
+    <string name="chatusername">UserName</string>
+    <string name="status">online</string>
+    <string name="type_a_message">Type a message</string>
+    <string name="test">test</string>
+    <string name="delete_for_everyone">Delete for everyone</string>
+    <string name="cancel">Cancel</string>
 </resources>

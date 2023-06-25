@@ -1,6 +1,7 @@
 package com.noritz.whatsup
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,6 +27,13 @@ class UserAdapter(var context : Context, var userList : ArrayList<User>) : Recyc
         val user = userList[position]
         holder.binding.username.text = user.username // check if the names are all correct
         Glide.with(context).load(user.image).placeholder(R.drawable.pp).into(holder.binding.profilePic)
+        holder.itemView.setOnClickListener{
+            val intent = Intent(context, MyChats::class.java)
+            intent.putExtra("name", user.username) // a voir
+            intent.putExtra("image", user.image)
+            intent.putExtra("uid", user.id)
+            context.startActivity(intent)
+        }
     }
 
 }
