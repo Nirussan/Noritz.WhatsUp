@@ -7,7 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.noritz.whatsup.R
 import com.noritz.whatsup.databinding.ChatListItemBinding
+import com.noritz.whatsup.GlideApp
+import com.noritz.whatsup.MyAppGlideModule
+
+
 
 class UserAdapter(var context : Context, var userList : ArrayList<User>) : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
@@ -22,8 +27,13 @@ class UserAdapter(var context : Context, var userList : ArrayList<User>) : Recyc
     }
 
     override fun getItemCount(): Int = userList.size
+    /*override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
+        val user = userList[position]
+        holder.binding.username.text = user.username // check if the names are all correct
+        //GlideApp.with(context).load(user.image).placeholder(R.drawable.pp).into(holder.binding.profilePic)
+    }*/
 
-    override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
+   /* override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         val user = userList[position]
         holder.binding.username.text = user.username // check if the names are all correct
         Glide.with(context).load(user.image).placeholder(R.drawable.pp).into(holder.binding.profilePic)
@@ -34,6 +44,23 @@ class UserAdapter(var context : Context, var userList : ArrayList<User>) : Recyc
             intent.putExtra("uid", user.id)
             context.startActivity(intent)
         }
-    }
+    }*/
+  override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
+       val user = userList[position]
+       holder.binding.username.text = user.username
+       /*GlideApp.with(context)
+           .load(user.image)
+           .placeholder(R.drawable.pp)
+           .into(holder.binding.profilePic)*/
+       holder.itemView.setOnClickListener {
+           val intent = Intent(context, MyChats::class.java)
+           intent.putExtra("name", user.username)
+           /*intent.putExtra("image", user.image)*/
+           intent.putExtra("uid", user.id)
+           context.startActivity(intent)
+       }
+   }
+
 
 }
+

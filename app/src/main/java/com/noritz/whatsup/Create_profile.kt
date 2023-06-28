@@ -44,15 +44,10 @@ class Create_profile : AppCompatActivity() {
             if(username.isEmpty()){
                 bind!!.nameEditText.setError("Please type your username")
             }
+            var usedImg : String? = null
             if(img != null){
-             val storageRef = fStorage!!.reference.child("Profile").child(auth!!.uid!!) //a voir
-                storageRef.putFile(img!!).addOnCompleteListener { task ->
-                    var usedImg : String? = null
-                    if(task.isSuccessful) {
-                        storageRef.downloadUrl.addOnCompleteListener { uri ->
-                           usedImg = uri.toString()
+                            usedImg = img.toString()
                         }
-                    }
 
                     else {
                         usedImg = "No Image"
@@ -65,16 +60,16 @@ class Create_profile : AppCompatActivity() {
                         usedImg
                     )
                     fDB!!.reference.child("Users").child(auth.uid.toString()).setValue(user).addOnCompleteListener {
-                        val intent = Intent(this@Create_profile, MainActivity::class.java)
+                        val intent = Intent(this@Create_profile, ChatsList::class.java)
                         startActivity(intent)
                         finish()
                     } // a voir
                 }
             }
-        }
+
         //envoyerMainActivity()
 
-    }
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)

@@ -154,7 +154,7 @@ class MyChats : AppCompatActivity() {
                                 database!!.reference.child("Chats").updateChildren(lastMsgObj)
                                 database!!.reference.child("Chats").child(receiverRoom!!).updateChildren(lastMsgObj)
                                 database!!.reference.child("Chats").child(senderRoom!!).child("messages").child(randomKey!!).setValue(message).addOnSuccessListener {
-                                    database!!.reference.child("Chats").child(receiverRoom!!).child("messages").child(randomKey).setValue(message).addOnSuccessListener {  }
+                                    database!!.reference.child("Chats").child(receiverRoom!!).child("message").child(randomKey).setValue(message).addOnSuccessListener {  }
                                 }
                             }
                         }

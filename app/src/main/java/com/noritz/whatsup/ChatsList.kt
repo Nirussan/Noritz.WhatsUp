@@ -1,5 +1,6 @@
 package com.noritz.whatsup
 
+//import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
@@ -10,7 +11,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.noritz.whatsup.databinding.ChatsBinding
 
-// je peux mettre des dialogues mais ca fait trop copier coller
+//
 class ChatsList : AppCompatActivity() {
 
     var bind : ChatsBinding? = null
@@ -21,9 +22,14 @@ class ChatsList : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         bind = ChatsBinding.inflate(layoutInflater)
         setContentView(bind!!.root)
-        initialisation()
+
+        fDB = FirebaseDatabase.getInstance()
+        userList = ArrayList<User>()
+        userAdapter = UserAdapter(this@ChatsList, userList!!)
+
         val layoutManager = GridLayoutManager(this@ChatsList, 1)
         bind!!.chatsRecycler.layoutManager = layoutManager
         fDB!!.reference.child("Users").child(FirebaseAuth.getInstance().uid!!).addValueEventListener(object : ValueEventListener {

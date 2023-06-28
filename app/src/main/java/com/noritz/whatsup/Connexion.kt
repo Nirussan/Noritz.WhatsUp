@@ -82,7 +82,7 @@ class Connexion : AppCompatActivity() {
     }
 
     private fun envoyerMainActivity() {
-        startActivity(Intent(this,Create_profile::class.java))
+        startActivity(Intent(this,ChatsList::class.java))
     }
 
     private val callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
@@ -140,7 +140,7 @@ class Connexion : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         if(auth.currentUser != null) {
-            startActivity(Intent(this, Create_profile::class.java))
+            startActivity(Intent(this, Settings::class.java))
             finish()
         }
     }
