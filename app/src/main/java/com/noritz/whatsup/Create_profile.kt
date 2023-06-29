@@ -13,7 +13,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.noritz.whatsup.databinding.CreateProfileBinding
 import java.util.Date
-// je peux mettre des dialogues mais ca fait trop copier coller
+
 class Create_profile : AppCompatActivity() {
 
     var bind: CreateProfileBinding? = null
